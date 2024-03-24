@@ -1,0 +1,38 @@
+{
+  "cSpell.words": [
+    "Aigc",
+    "antfu",
+    "demi",
+    "dlife",
+    "dlifes",
+    "dplayer",
+    "filelist",
+    "highlightjs",
+    "iconify",
+    "intlify",
+    "katex",
+    "Lazyload",
+    "Msglist",
+    "pinia",
+    "pnpm",
+    "qrcode",
+    "replys",
+    "SWRV",
+    "unocss",
+    "unplugin",
+    "vant",
+    "Vite",
+    "vitejs",
+    "Vitesse",
+    "vitest",
+    "vueuse",
+    "yunlefun"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "editor.formatOnSave": false
+}
