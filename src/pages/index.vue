@@ -98,7 +98,7 @@ defineOptions({
     background-position: 25vw;
   }
   .box {
-    width: 50%;
+    width: 60%;
     height: 100vh;
     .title {
       text-align: left;
@@ -130,7 +130,7 @@ defineOptions({
   .main {
     width: 1920px;
     background-image: url(/img/big-bg.png);
-    background-size: 1920px auto;
+    background-size: 1920px 100%;
     background-position: 25vw;
     margin: 0 auto;
   }
