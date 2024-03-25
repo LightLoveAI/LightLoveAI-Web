@@ -6,7 +6,7 @@ import zhCN from 'dayjs/locale/zh-cn'
 import { setupPinia } from './modules/pinia'
 import { setupHead } from './modules/head'
 
-import { loadFont } from './modules/font'
+import { loadFontAsync } from './modules/font'
 
 import App from './App.vue'
 import { setupRouter } from './router'
@@ -35,7 +35,8 @@ async function bootstrap() {
 
   app.mount('#app')
 
-  loadFont()
+  loadFontAsync('EB Garamond', '/fonts/EBGaramond08-Regular.ttf')
+  loadFontAsync('花园明朝体', '/fonts/HanaMinA.ttf')
 
   dayjs.locale(zhCN)
 }
