@@ -7,7 +7,25 @@ defineOptions({
 
 const { config } = useLangConfig()
 const fontText = ref(config.defaultLang === 'zh-cn' ? '花园明朝体' : 'EB Garamond')
-const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
+// const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
+const open = () => {
+  window.open('https://dbase.qingmeta.cn/chat/share?shareId=hibh5cotc6kednbenydjyfh3')
+}
+const vSrc = ref(window.innerWidth <= 375 ? '/img/02.mp4' : '/img/01.mp4')
+function resize() {
+  if (window.innerWidth / window.devicePixelRatio <= 375 && vSrc.value !== '/img/02.mp4')
+    vSrc.value = '/img/02.mp4'
+  else if (window.innerWidth / window.devicePixelRatio > 375 && vSrc.value !== '/img/01.mp4')
+    vSrc.value = '/img/01.mp4'
+}
+onMounted(() => {
+  resize()
+  nextTick(() => {
+    const video: any = document.getElementById('autoplayVideo')
+    video.controls = false // Hide the video controls
+  })
+  window.addEventListener('resize', resize)
+})
 </script>
 
 <template>
@@ -18,16 +36,24 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
         <div class="desc" text-center v-html="$t('home.describe')" />
         <div class="desc2" text-center v-html="$t('home.describe2')" />
         <div class="btnBox">
-          <button w="155px" h="44px" bg="transparent" class="btn" border="1px solid #ffffff" rounded="22px" text="#ffffff">
+          <!-- <button w="155px" h="44px" bg="transparent" class="btn" border="1px solid #ffffff" rounded="22px" text="#ffffff">
             <span class="mr-10px">{{ $t('home.btnText') }}</span><van-icon name="arrow" />
-          </button>
-          <button w="155px" h="44px" class="btn2 btn" bg="#ffffff" border="1px solid #ffffff" rounded="22px" text="#000000">
-            <span class="mr-10px">{{ $t('home.btnText') }}</span>
+          </button> -->
+          <button w="155px" h="44px" class="btn2 btn" bg="#ffffff" border="1px solid #ffffff" rounded="22px" text="#000000" @click="open">
+            <span class="mr-10px">{{ $t('home.btnText') }}
+            </span>
           </button>
         </div>
       </div>
     </div>
-    <div class="mainBg" />
+    <div class="mainBg">
+      <video v-if="vSrc === '/img/01.mp4'" id="autoplayVideo" autoplay muted loop>
+        <source :src="vSrc" type="video/mp4">
+      </video>
+      <video v-else id="autoplayVideo" autoplay muted loop>
+        <source :src="vSrc" type="video/mp4">
+      </video>
+    </div>
     <lang />
   </div>
 </template>
@@ -37,7 +63,8 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
   color: #ffffff;
   background-repeat: no-repeat;
   background-position: center;
-  display: flex;
+  width: 100vw;
+  height: 100vh;
 }
 
 .box {
@@ -46,13 +73,26 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
 
 @media (min-width: 0px) and (max-width: 375px) {
   .main {
-    background-image: url(/img/bg.png);
-    background-size: 100% 100%;
+    // background-image: url(/img/00002.webp);
+    // background-size: 100% 100%;
+    position: relative;
+  }
+  .mainBg {
+    // background-image: url(/img/big-bg.png);
+    // background-size: 100vw 100vh;
+    // background-position: 25vw;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   .box {
     width: 100vw;
     height: 100vh;
-    background-color: rgba($color: #000000, $alpha: 0.5);
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    position: absolute;
+    z-index: 10;
   }
   .content {
     width: 100vw;
@@ -61,9 +101,8 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .mainBg {
-    display: none;
+    position: relative;
+    z-index: 0;
   }
   .title {
     line-height: 37px;
@@ -78,7 +117,6 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
   }
   .btnBox {
     display: flex;
-    flex-direction: column;
     flex-direction: column-reverse;
   }
   .btn {
@@ -91,13 +129,25 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
 
 @media (min-width: 375px) and (max-width: 768px) {
   .main {
-    background-image: url(/img/bg.png);
-    background-size: 100% 100%;
+    // background-image: url(/img/bg.png);
+    // background-size: 100% 100%;
+  }
+  .mainBg {
+    // background-image: url(/img/big-bg.png);
+    // background-size: 100vw 100vh;
+    // background-position: 25vw;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   .box {
     width: 100vw;
     height: 100vh;
-    background-color: rgba($color: #000000, $alpha: 0.5);
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    position: relative;
+    z-index: 2;
   }
   .content {
     width: 100vw;
@@ -106,9 +156,6 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .mainBg {
-    display: none;
   }
   .title {
     line-height: 37px;
@@ -137,14 +184,26 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
 
 @media (min-width: 769px) and (max-width: 1366px)  {
   .main {
-    background-image: url(/img/big-bg.png);
-    background-size: 100vw 100vh;
-    background-position: 25vw;
+    // background-image: url(/img/big-bg.png);
+    // background-size: 100vw 100vh;
+    // background-position: 25vw;
+  }
+  .mainBg {
+    // background-image: url(/img/big-bg.png);
+    // background-size: 100vw 100vh;
+    // background-position: 25vw;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   .box {
     width: 60%;
     height: 100vh;
     --boxWidth: 420px;
+    position: relative;
+    z-index: 2;
     .title {
       text-align: left;
       width: var(--boxWidth);
@@ -168,22 +227,34 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
       width: var(--boxWidth);
       margin-top: 95px;
     }
-    .btn2 {
-      margin-left: 60px;
-    }
+    // .btn2 {
+    //   margin-left: 60px;
+    // }
   }
 }
 
 @media (min-width: 1366px) and (max-width: 1920px)  {
   .main {
-    background-image: url(/img/big-bg.png);
-    background-size: 100vw 100vh;
-    background-position: 25vw;
+    // background-image: url(/img/big-bg.png);
+    // background-size: 100vw 100vh;
+    // background-position: 25vw;
+  }
+  .mainBg {
+    // background-image: url(/img/big-bg.png);
+    // background-size: 100vw 100vh;
+    // background-position: 25vw;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   .box {
     width: 60%;
     height: 100vh;
     --boxWidth: 480px;
+    position: relative;
+    z-index: 2;
     .title {
       text-align: left;
       width: var(--boxWidth);
@@ -207,9 +278,9 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
       font-size: 18px;
       line-height: 44px;
     }
-    .btn2 {
-      margin-left: 60px;
-    }
+    // .btn2 {
+    //   margin-left: 60px;
+    // }
   }
 }
 
@@ -221,10 +292,22 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
     background-position: 25vw;
     margin: 0 auto;
   }
+  .mainBg {
+    // background-image: url(/img/big-bg.png);
+    // background-size: 100vw 100vh;
+    // background-position: 25vw;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
   .box {
     width: 60%;
     height: 100vh;
     --boxWidth: 700px;
+    position: relative;
+    z-index: 2;
     .title {
       text-align: left;
       width: var(--boxWidth);
@@ -248,9 +331,17 @@ const langIndex = ref(config.defaultLang === 'zh-cn' ? 0 : 1)
       font-size: 26px;
       line-height: 44px;
     }
-    .btn2 {
-      margin-left: 60px;
-    }
+    // .btn2 {
+    //   margin-left: 60px;
+    // }
   }
+}
+#autoplayVideo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: fill;
 }
 </style>
