@@ -60,7 +60,7 @@ const playMusic = () => {
   color: #ffffff;
 }
 .listBox {
-  height: 50px;
+  height: 40px;
 }
 .music {
   margin-left: 10px;
@@ -68,6 +68,7 @@ const playMusic = () => {
   padding: 10px 20px;
   box-sizing: border-box;
   position: relative;
+  height: 40px;
   .line {
     width: 24px;
     height: 1px;
@@ -80,10 +81,10 @@ const playMusic = () => {
 }
 .box {
   width: 113px;
-  height: 50px;
+  height: 40px;
   opacity: 1;
   border-radius: 16px;
-  border: 2px solid rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 1);
   display: flex;
   align-items: center;
   justify-content: center;

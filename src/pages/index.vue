@@ -36,12 +36,12 @@ onMounted(() => {
         <div class="desc" text-center v-html="$t('home.describe')" />
         <div class="desc2" text-center v-html="$t('home.describe2')" />
         <div class="btnBox">
-          <!-- <button w="155px" h="44px" bg="transparent" class="btn" border="1px solid #ffffff" rounded="22px" text="#ffffff">
-            <span class="mr-10px">{{ $t('home.btnText') }}</span><van-icon name="arrow" />
-          </button> -->
           <button w="155px" h="44px" class="btn2 btn" bg="#ffffff" border="1px solid #ffffff" rounded="22px" text="#000000" @click="open">
-            <span class="mr-10px">{{ $t('home.btnText') }}
+            <span class="mr-10px">{{ $t('home.btnText2') }}
             </span>
+          </button>
+          <button w="155px" h="44px" bg="transparent" class="btn btn3" border="1px solid #ffffff" rounded="22px" text="#ffffff">
+            <span class="mr-10px">{{ $t('home.btnText') }}</span><van-icon name="arrow" />
           </button>
         </div>
       </div>
@@ -90,7 +90,7 @@ onMounted(() => {
   .box {
     width: 100vw;
     height: 100vh;
-    background-color: rgba($color: #000000, $alpha: 0.2);
+    background-color: rgba($color: #00010d, $alpha: 0.2);
     position: absolute;
     z-index: 10;
   }
@@ -117,10 +117,15 @@ onMounted(() => {
   }
   .btnBox {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    // flex-direction: column-reverse;
   }
   .btn {
     margin-top: 20px;
+  }
+  .btn3 {
+    margin-top: 20px;
+    margin-left: 0 !important;
   }
   .desc2 {
     display: none;
@@ -145,7 +150,6 @@ onMounted(() => {
   .box {
     width: 100vw;
     height: 100vh;
-    background-color: rgba($color: #000000, $alpha: 0.3);
     position: relative;
     z-index: 2;
   }
@@ -172,10 +176,13 @@ onMounted(() => {
   .btnBox {
     display: flex;
     flex-direction: column;
-    flex-direction: column-reverse;
   }
   .btn {
     margin-top: 33px;
+  }
+  .btn3 {
+    margin-top: 20px;
+    margin-left: 0 !important;
   }
   .desc2 {
     display: none;
@@ -252,7 +259,7 @@ onMounted(() => {
   .box {
     width: 60%;
     height: 100vh;
-    --boxWidth: 480px;
+    --boxWidth: 100%;
     position: relative;
     z-index: 2;
     .title {
@@ -274,7 +281,7 @@ onMounted(() => {
       text-align: left;
       width: var(--boxWidth);
       box-sizing: border-box;
-      padding-top: 81px;
+      padding-top: 60px;
       font-size: 18px;
       line-height: 44px;
     }
@@ -305,7 +312,7 @@ onMounted(() => {
   .box {
     width: 60%;
     height: 100vh;
-    --boxWidth: 700px;
+    --boxWidth: 100%;
     position: relative;
     z-index: 2;
     .title {
@@ -331,9 +338,9 @@ onMounted(() => {
       font-size: 26px;
       line-height: 44px;
     }
-    // .btn2 {
-    //   margin-left: 60px;
-    // }
+    .btn {
+      font-size: 18px
+    }
   }
 }
 #autoplayVideo {
@@ -343,5 +350,9 @@ onMounted(() => {
   left: 0;
   top: 0;
   object-fit: fill;
+}
+.btn3 {
+  margin-left: 40px;
+  border: none;
 }
 </style>
