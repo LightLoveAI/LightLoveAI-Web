@@ -2,7 +2,7 @@
 import { useLangConfig } from '~/lang'
 
 defineOptions({
-  name: 'Home',
+  name: 'First',
 })
 
 const { config } = useLangConfig()
@@ -55,9 +55,6 @@ onMounted(() => {
       </video>
     </div>
     <lang />
-  </div>
-  <div>
-    123123
   </div>
 </template>
 
