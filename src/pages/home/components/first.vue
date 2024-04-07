@@ -50,9 +50,10 @@ onMounted(() => {
       <video v-if="vSrc === '/img/01.mp4'" id="autoplayVideo" autoplay muted loop>
         <source :src="vSrc" type="video/mp4">
       </video>
-      <video v-else id="autoplayVideo" autoplay muted loop>
+      <!-- <video v-else id="autoplayVideo" autoplay muted loop>
         <source :src="vSrc" type="video/mp4">
-      </video>
+      </video> -->
+      <img v-else class="autoplayPng" src="/public/img/00002.png" alt="">
     </div>
     <lang />
   </div>
@@ -344,6 +345,14 @@ onMounted(() => {
   }
 }
 #autoplayVideo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: fill;
+}
+.autoplayPng {
   width: 100%;
   height: 100%;
   position: absolute;

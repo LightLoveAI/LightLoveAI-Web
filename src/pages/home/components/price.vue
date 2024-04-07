@@ -146,7 +146,7 @@
     text-align: center;
     font-size: 1.4vw;
     i {
-      font-size: 8px;
+      font-size: 1vw;
       color: rgba(160, 161, 168, .5);
       font-style: normal;
     }
