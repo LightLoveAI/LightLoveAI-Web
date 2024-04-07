@@ -75,8 +75,8 @@ onMounted(() => {
 video::-webkit-media-controls {
   display:none !important;
 }
-    
-    /* 防止控制条重新显示 */
+
+/* 防止控制条重新显示 */
 video::-webkit-media-controls-enclosure {
   overflow:hidden !important;
 }
