@@ -71,7 +71,15 @@ onMounted(() => {
 .box {
   font-family: v-bind(fontText);
 }
-
+/* 隐藏控制条 */
+video::-webkit-media-controls {
+  display:none !important;
+}
+    
+    /* 防止控制条重新显示 */
+video::-webkit-media-controls-enclosure {
+  overflow:hidden !important;
+}
 @media (min-width: 0px) and (max-width: 375px) {
   .main {
     // background-image: url(/img/00002.webp);

@@ -15,16 +15,16 @@
         <tr>
           <td class="first" />
           <td class="td header">
-            <img src="/img/s/p1.png" alt="Product 1">
-            <div>{{ $t('home.price.t1') }}</div>
+            <img src="/img/s/p3.png" alt="Product 1">
+            <div>{{ $t('home.classify.item1.title') }}</div>
           </td>
           <td class="td header">
             <img src="/img/s/p1.png" alt="Product 1">
-            <div>{{ $t('home.price.t1') }}</div>
+            <div>{{ $t('home.classify.item2.title') }}</div>
           </td>
           <td class="td header">
-            <img src="/img/s/p1.png" alt="Product 1">
-            <div>{{ $t('home.price.t1') }}</div>
+            <img src="/img/s/p2.png" alt="Product 1">
+            <div>{{ $t('home.classify.item3.title') }}</div>
           </td>
         </tr>
         <tr class="tr">
