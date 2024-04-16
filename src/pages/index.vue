@@ -56,9 +56,6 @@ onMounted(() => {
     </div>
     <lang />
   </div>
-  <div>
-    123123
-  </div>
 </template>
 
 <style scoped lang="scss">
@@ -68,6 +65,7 @@ onMounted(() => {
   background-position: center;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .box {
